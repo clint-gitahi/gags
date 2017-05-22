@@ -20,7 +20,7 @@ class AddImage extends Component {
   }
 
   setImage(info) {
-    fetch('http://localhost:4000/gram', {
+    fetch('http://ec2-54-179-164-39.ap-southeast-1.compute.amazonaws.com/gram', {
       headers: new Headers({
         'Content-Type': 'application/json'
       }),

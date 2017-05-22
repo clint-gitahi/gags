@@ -12,7 +12,7 @@ class ImageContainer extends Component {
       search: ''
     };
 
-    
+
     this.toggle = this.toggle.bind(this);
     this.deletePhotos = this.deletePhotos.bind(this);
     this.setsearchBar = this.setsearchBar.bind(this);
@@ -34,7 +34,7 @@ class ImageContainer extends Component {
   }
 
   getPhotos() {
-    fetch('http://localhost:4000/gram', {
+    fetch('http://ec2-54-179-164-39.ap-southeast-1.compute.amazonaws.com/gram', {
       headers: new Headers({
         'Content-Type': 'application/json'
       })
@@ -45,7 +45,7 @@ class ImageContainer extends Component {
 
   deletePhotos(id) {
     console.log('deleting....', id);
-    fetch(`http://localhost:4000/gram/${id}`, {
+    fetch(`http://ec2-54-179-164-39.ap-southeast-1.compute.amazonaws.com/gram/${id}`, {
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
