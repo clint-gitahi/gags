@@ -13,18 +13,23 @@ class PhotoList extends Component {
           <Link to="/new"><Button basic color="purple">Add New Photos</Button></Link>
         </div>
 
-        <div className="ui search">
-          <div>
-            <div className="ui icon input">
-              <input className="prompt" type="text" placeholder="Search Title..." onKeyUp={setsearchBar}/>
-              <i className="search icon"></i>
+        <div className="ui grid container">
+          <div className="ui two column centered grid">
+            <div className="ui search">
+              <div>
+                <div className="ui icon input">
+                  <input className="prompt" type="text" placeholder="Search Title..." onKeyUp={setsearchBar}/>
+                  <i className="search icon"></i>
+                </div>
+              </div>
+              <div className="results"></div>
             </div>
           </div>
-          <div className="results"></div>
         </div>
 
+
         <div className="ui grid container">
-          <div className="ui three column centered grid">
+          <div className="ui three column grid">
             {
               photos
                 .filter(img => img.title.toLowerCase().includes(search))

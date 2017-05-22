@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
 
 export default class NewPost extends Component {
   constructor(props) {
@@ -9,6 +9,7 @@ export default class NewPost extends Component {
       file: '',
       imagePrev: ''
     }
+    this.timer = this.timer.bind(this);
     this.handleImage = this.handleImage.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -26,9 +27,7 @@ export default class NewPost extends Component {
       })
 
     }
-    reader.readAsDataURL(file)
-
-    console.log(this.state)
+    reader.readAsDataURL(file);
   }
 
   onSubmit(e) {
@@ -41,10 +40,20 @@ export default class NewPost extends Component {
     }
     this.props.setImage(info);
 
-    // this.refs.title.value = "";
-    // this.refs.description.value = "";
-    // this.refs.image.value = "";
+    this.refs.title.value = "";
+    this.refs.description.value = "";
+    this.refs.image.value = "";
+
+    this.timer()
+
   }
+
+timer() {
+  setTimeout(() => {
+    browserHistory.push('/')
+  }, 4000);
+}
+
   render() {
     let {imagePrev} = this.state;
     let imagePreview = null;

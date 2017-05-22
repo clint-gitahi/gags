@@ -10,7 +10,7 @@ class Modal extends Component {
       <div className="ui modal">
         <i className="close icon"></i>
         <div className="header">
-          Profile Picture
+          Image
         </div>
         <div className="image content">
           <div className="ui medium image">
@@ -18,12 +18,12 @@ class Modal extends Component {
           </div>
 
           <div className="description">
-            <div>
+            <h4>
               {title}
-            </div>
-            <div>
+            </h4>
+            <h5>
               {description}
-            </div>
+            </h5>
           </div>
         </div>
         <div className="actions">

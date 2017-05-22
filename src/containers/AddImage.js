@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
-import { Link, hashHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { Form } from '../components'
 
 class AddImage extends Component {
@@ -13,27 +13,13 @@ class AddImage extends Component {
     this.setImage = this.setImage.bind(this);
   }
 
-  // submit() {
-  //   // fetch('http://localhost:4000/gram', {
-  //   //   headers: new Headers({
-  //   //     "Content-Type": "application/json"
-  //   //   }),
-  //   //   method: "POST"
-  //   // })
-  //   // .then(res => res.json())
-  //   // .then(data => {
-  //   //   console.log(data.message);
-  //   //   hashHistory.push("/");
-  //   // })
-  //   console.log( "____+++++ state++++", this.state.newImage);
-  // }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      children: nextProps.children
+    })
+  }
 
   setImage(info) {
-    // const newImage = {
-    //   title: document.getElementById('title').value,
-    //   description: document.getElementById('description').value,
-    //   path: document.getElementById('image').value
-    // }
     fetch('http://localhost:4000/gram', {
       headers: new Headers({
         'Content-Type': 'application/json'
@@ -41,14 +27,9 @@ class AddImage extends Component {
       method: 'POST',
       body: JSON.stringify(info)
     })
-      .then(res =>
-        res.json())
-      .then(data => {
-        console.log(data.message);
-        hashHistory.push('/')
+    .then(res => {
+        res.json()
       })
-
-    console.log(this.state.newImage);
   }
 
   render() {
